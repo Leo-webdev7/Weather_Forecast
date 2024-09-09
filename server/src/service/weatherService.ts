@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import dayjs, { type Dayjs } from 'dayjs';
-import { response } from 'express';
+/* import { response } from 'express'; */
 dotenv.config();
 
 
@@ -10,15 +10,15 @@ interface Coordinates {
   name: string;
   country: string;
   state: string;
-  latitude: string;
-  longitude: string;
+  lat: string;
+  lon: string;
 }
 
 // TODO: Define a class for the Weather object
 class Weather {
   city: string;
   date: Dayjs | string;
-  temperature: number;
+  tempF: number;
   windSpeed: number;
   humidity: number;
   icon: string;
@@ -35,7 +35,7 @@ class Weather {
   ) {
     this.city = city;
     this.date = date;
-    this.temperature = temperature;
+    this.tempF = temperature;
     this.windSpeed = windSpeed;
     this.humidity = humidity;
     this.icon = icon;
@@ -64,6 +64,7 @@ class WeatherService {
     }
 
     const response: Coordinates[] = await fetch(query).then((res) => res.json());
+    console.log(`FETCH log ${JSON.stringify(response)}`);
     return response[0];
   } catch (error) {
     console.error(error);
@@ -78,21 +79,22 @@ class WeatherService {
     if (!locationData) {
       throw new Error('City not found');
     }
-    const { name, latitude, longitude, country, state} = locationData;
+    const { name, lat, lon, country, state} = locationData;
     const coordinates: Coordinates = {
       name,
-      latitude,
-      longitude,
+      lat,
+      lon,
       country,
       state,
     };
-
+    console.log(`destructure ${JSON.stringify(coordinates)}`);
     return coordinates;
   }
 
   // TODO: Create buildGeocodeQuery method
   // private buildGeocodeQuery(): string {}
   private buildGeocodeQuery(): string {
+
     const geocodeQuery = `${this.baseURL}/geo/1.0/direct?q=${this.city}&limit=1&appid=${this.apiKey}`;
     return geocodeQuery;
   }
@@ -100,7 +102,8 @@ class WeatherService {
   // TODO: Create buildWeatherQuery method
   // private buildWeatherQuery(coordinates: Coordinates): string {}
   private buildWeatherQuery(coordinates: Coordinates): string {
-    const weatherQuery = `${this.baseURL}/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&units=imperial&appid=${this.apiKey}`;
+    const weatherQuery = `${this.baseURL}/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${this.apiKey}`;
+    console.log(`weather query ${JSON.stringify(weatherQuery)}`)
     return weatherQuery;
   }
 
@@ -115,10 +118,12 @@ class WeatherService {
   // TODO: Create fetchWeatherData method
   // private async fetchWeatherData(coordinates: Coordinates) {}
   private async fetchWeatherData(coordinates: Coordinates) {
+    console.log(`Fetching weather data for: ${JSON.stringify(coordinates)}`);
     try {
       const response = await fetch(this.buildWeatherQuery(coordinates)).then(
         (res) => res.json()
       );
+       console.log('response', JSON.stringify(response));
       if (!response) {
         throw new Error('Weather data not found');
       }
@@ -185,6 +190,7 @@ class WeatherService {
     try {
       this.city = city;
       const coordinates = await this.fetchAndDestructureLocationData();
+      console.log(`get weather for city log ${JSON.stringify(coordinates)}`);
       if (coordinates) {
         const weather = await this.fetchWeatherData(coordinates);
         return weather;
@@ -201,9 +207,9 @@ class WeatherService {
 export default new WeatherService();
 
 
-fetch(
+/* fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=vinnytsia&units=metric&APPID=de3f633e7310a3e13075ec4bab6365c6`
 )
     .then((response) => response.json())
     .then((data) => console.log(data))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err)); */
