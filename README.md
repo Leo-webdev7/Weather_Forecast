@@ -40,6 +40,7 @@ This application is covered under the MIT license.
 ## Links
 
 Walkthrough Video - https://drive.google.com/file/d/12va5jqVkCEXZFlTWfArohOZk5AhMRiUJ/view
+
 Github Repository - https://github.com/Leo-webdev7/Weather_Forecast
 
 ## Questions
