@@ -36,6 +36,11 @@ Run "npm run test".
 
 This application is covered under the MIT license.
 
+## Links
+
+Walkthrough Video - https://drive.google.com/file/d/12va5jqVkCEXZFlTWfArohOZk5AhMRiUJ/view
+Github Repository - https://github.com/Leo-webdev7/Weather_Forecast
+
 ## Questions
 
 Have additional questions? Click the links below to reach me through my GitHub account or Email address.
