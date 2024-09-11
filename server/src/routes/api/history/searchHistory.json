@@ -1,6 +1,42 @@
 [
 	{
+		"name": "San Diego",
+		"id": "75ccc8a6-6a4c-4f26-ac7d-b365f8c12b36"
+	},
+	{
+		"name": "Miami",
+		"id": "d4bc9c05-67ec-4663-98ba-73c33197e0f7"
+	},
+	{
+		"name": "New York",
+		"id": "16a0263c-387c-4b2e-ad23-fe5d5e626d78"
+	},
+	{
+		"name": "Tokyo",
+		"id": "01acdbd5-0dbb-4968-be90-9101a9990015"
+	},
+	{
+		"name": "London",
+		"id": "e59168e9-74bd-4de5-8e85-5d31a9b4a8e2"
+	},
+	{
+		"name": "Frankfurt",
+		"id": "9eb002ff-03e1-494a-a325-d1e22ad103fa"
+	},
+	{
+		"name": "Copenhagen",
+		"id": "1b79ffc5-0d3f-4916-a4cb-00f5e2f20945"
+	},
+	{
+		"name": "Goteborg",
+		"id": "14d70bb2-11ca-4cd7-8a74-8a012f7458d7"
+	},
+	{
+		"name": "Vinnytsia",
+		"id": "3f4371c1-cfda-4526-9257-b784e62d9f67"
+	},
+	{
 		"name": "Minneapolis",
-		"id": "245b67e6-d4db-4f6a-98c8-8159f6c42d24"
+		"id": "1622aa80-3fb3-4db2-a33e-dd50a8dc7f4e"
 	}
 ]

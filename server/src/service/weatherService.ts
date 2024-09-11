@@ -64,7 +64,7 @@ class WeatherService {
     }
 
     const response: Coordinates[] = await fetch(query).then((res) => res.json());
-    console.log(`FETCH log ${JSON.stringify(response)}`);
+    /* console.log(`FETCH log ${JSON.stringify(response)}`); */
     return response[0];
   } catch (error) {
     console.error(error);
@@ -87,7 +87,7 @@ class WeatherService {
       country,
       state,
     };
-    console.log(`destructure ${JSON.stringify(coordinates)}`);
+    /* console.log(`destructure ${JSON.stringify(coordinates)}`); */
     return coordinates;
   }
 
@@ -103,7 +103,7 @@ class WeatherService {
   // private buildWeatherQuery(coordinates: Coordinates): string {}
   private buildWeatherQuery(coordinates: Coordinates): string {
     const weatherQuery = `${this.baseURL}/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${this.apiKey}`;
-    console.log(`weather query ${JSON.stringify(weatherQuery)}`)
+    /* console.log(`weather query ${JSON.stringify(weatherQuery)}`) */
     return weatherQuery;
   }
 
@@ -118,7 +118,7 @@ class WeatherService {
   // TODO: Create fetchWeatherData method
   // private async fetchWeatherData(coordinates: Coordinates) {}
   private async fetchWeatherData(coordinates: Coordinates) {
-    console.log(`Fetching weather data for: ${JSON.stringify(coordinates)}`);
+    /* console.log(`Fetching weather data for: ${JSON.stringify(coordinates)}`); */
     try {
       const response = await fetch(this.buildWeatherQuery(coordinates)).then(
         (res) => res.json()
@@ -190,7 +190,7 @@ class WeatherService {
     try {
       this.city = city;
       const coordinates = await this.fetchAndDestructureLocationData();
-      console.log(`get weather for city log ${JSON.stringify(coordinates)}`);
+      /* console.log(`get weather for city log ${JSON.stringify(coordinates)}`); */
       if (coordinates) {
         const weather = await this.fetchWeatherData(coordinates);
         return weather;
