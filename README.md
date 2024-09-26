@@ -9,6 +9,7 @@
 * [Usage Information](#usage-information)
 * [Contribution Guidelines](#contribution-guidelines)
 * [Test Instructions](#test-instructions)
+* [Screenshots](#screenshots)
 * [License](#license)
 * [Links](#links)
 * [Questions](#questions)
@@ -32,6 +33,11 @@ please refer to CONTRIBUTING.md
 ## Test Instructions
 
 Run "npm run test".
+
+## Screenshots
+
+![weather_forecast](https://github.com/user-attachments/assets/483da4ad-f894-4004-9081-65df405cdd8d)
+
 
 ## License
 
